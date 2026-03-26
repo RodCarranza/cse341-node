@@ -19,25 +19,25 @@ POST http://localhost:3000/contacts
 Content-Type: application/json
 
 {
-    "firstName": "Edgardo",
-    "lastName": "Jhonson",
-    "email": "camij.nj@gmail.com",
-    "favoriteColor": "White",
-    "birthday": "1989-03-15"
+    "firstName": "John",
+    "lastName": "Wilson",
+    "email": "jwilsonj@gmail.com",
+    "favoriteColor": "Gray",
+    "birthday": "1999-03-15"
 }
 
 ###
 # Test PUT to update a contact /204
-PUT http://localhost:3000/contacts/69c5a50de54fe985d56b06a7
+PUT http://localhost:3000/contacts/69c5b9f677d1ea17d98e0209
 Content-Type: application/json
 
 {
-    "firstName": "Rami",
-    "lastName": "Salas",
-    "email": "rami56@outlook.com",
-    "favoriteColor": "Orange",
-    "birthday": "1999-04-19"
+    "firstName": "John",
+    "lastName": "Walker",
+    "email": "jwilsonj@gmail.com",
+    "favoriteColor": "Black",
+    "birthday": "1999-03-15"
 }
 ###
 # Test DELETE to delete a contact /200
-DELETE http://localhost:3000/contacts/69c5a2c7e54fe985d56b06a6
+DELETE http://localhost:3000/contacts/69c5b9f677d1ea17d98e0209
