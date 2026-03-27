@@ -45,7 +45,7 @@ Content-Type: application/json
 
 ###
 # Test PUT to update a contact /204
-PUT https://cse341-node-ytfz.onrender.com/contacts/
+PUT https://cse341-node-ytfz.onrender.com/contacts/69c5e996601f2053c07575bd
 Content-Type: application/json
 
 {
@@ -57,4 +57,4 @@ Content-Type: application/json
 }
 ###
 # Test DELETE to delete a contact /200
-DELETE https://cse341-node-ytfz.onrender.com/contacts/
+DELETE https://cse341-node-ytfz.onrender.com/contacts/69c5e996601f2053c07575bd
