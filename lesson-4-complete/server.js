@@ -10,7 +10,8 @@ app.use(express.json());
 const { connectDB } = require('./db/connect');
 
 // Connect to DB before mounting routes
-connectDB().then(() => {
+connectDB()
+  .then(() => {
     console.log('Database connected');
 
     // Use your routes (including contacts)
@@ -18,8 +19,9 @@ connectDB().then(() => {
 
     // Start server
     app.listen(port, () => {
-        console.log(`Running on port ${port}`);
+      console.log(`Running on port ${port}`);
     });
-}).catch(err => {
+  })
+  .catch((err) => {
     console.error('Failed to connect to database', err);
-});
+  });

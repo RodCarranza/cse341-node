@@ -33,7 +33,9 @@ const createContact = async (req, res) => {
 
   try {
     const db = getDB();
-    const result = await db.collection('contacts').insertOne({ firstName, lastName, email, favoriteColor, birthday });
+    const result = await db
+      .collection('contacts')
+      .insertOne({ firstName, lastName, email, favoriteColor, birthday });
     res.status(201).json({ id: result.insertedId });
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -49,10 +51,12 @@ const updateContact = async (req, res) => {
 
   try {
     const db = getDB();
-    const result = await db.collection('contacts').updateOne(
-      { _id: new ObjectId(req.params.id) },
-      { $set: { firstName, lastName, email, favoriteColor, birthday } }
-    );
+    const result = await db
+      .collection('contacts')
+      .updateOne(
+        { _id: new ObjectId(req.params.id) },
+        { $set: { firstName, lastName, email, favoriteColor, birthday } }
+      );
 
     if (result.matchedCount === 0) {
       return res.status(404).json({ message: 'Contact not found' });

@@ -5,5 +5,3 @@ const contactsRouter = require('./contacts'); // import the contacts routes
 routes.use('/contacts', contactsRouter);
 
 module.exports = routes;
-
-
