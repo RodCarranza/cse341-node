@@ -1,0 +1,60 @@
+
+# ---------- LOCAL -----------#
+# Test POST to create a new contact /201
+POST http://localhost:3000/contacts
+Content-Type: application/json
+
+{
+    "firstName": "John",
+    "lastName": "Wilson",
+    "email": "jwilsonj@gmail.com",
+    "favoriteColor": "Gray",
+    "birthday": "1999-03-15"
+}
+
+###
+# Test PUT to update a contact /204
+PUT http://localhost:3000/contacts/<id>
+Content-Type: application/json
+
+{
+    "firstName": "John",
+    "lastName": "Walker",
+    "email": "jwilsonj@gmail.com",
+    "favoriteColor": "Black",
+    "birthday": "1999-03-15"
+}
+###
+# Test DELETE to delete a contact /200
+DELETE http://localhost:3000/contacts/<id>
+###
+
+# ----------- RENDER ----------#
+
+# Test POST to create a new contact /201
+POST https://cse341-node-3.onrender.com/contacts
+Content-Type: application/json
+
+{
+    "firstName": "John",
+    "lastName": "Wilson",
+    "email": "jwilsonj@gmail.com",
+    "favoriteColor": "Gray",
+    "birthday": "1999-03-15"
+}
+
+###
+# Test PUT to update a contact /204
+PUT https://cse341-node-3.onrender.com/contacts/69c5e996601f2053c07575bd
+Content-Type: application/json
+
+{
+    "firstName": "John",
+    "lastName": "Walker",
+    "email": "jwilsonj@gmail.com",
+    "favoriteColor": "Black",
+    "birthday": "1999-03-15"
+}
+###
+# Test DELETE to delete a contact /200
+DELETE https://cse341-node-3.onrender.com/contacts/69c5e996601f2053c07575bd
