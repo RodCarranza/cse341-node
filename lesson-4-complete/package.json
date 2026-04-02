@@ -1,31 +1,32 @@
 {
-  "name": "cse341-apicourse-code",
+  "name": "temple-api",
   "version": "1.0.0",
-  "description": "code to give to students for the cse341 course",
-  "main": "server.js",
+  "description": "LDS Temple API for BYU-Idaho WDD230 student projects",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "devStart": "nodemon server.js",
-    "start": "node server.js"
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nathanbirch/cse341-apiCourse-code.git"
+    "url": "git+https://github.com/nathanbirch/temple-api.git"
   },
   "author": "Nathan Birch",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nathanbirch/cse341-apiCourse-code/issues"
+    "url": "https://github.com/nathanbirch/temple-api/issues"
   },
-  "homepage": "https://github.com/nathanbirch/cse341-apiCourse-code#readme",
+  "homepage": "https://github.com/nathanbirch/temple-api#readme",
   "dependencies": {
-    "dotenv": "^17.3.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
     "express": "^4.22.1",
     "mongodb": "^7.1.1",
-    "swagger-jsdoc": "^6.2.8",
+    "mongoose": "^6.0.14",
+    "nodemon": "^2.0.22",
     "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.22"
+    "swagger-autogen": "^2.23.7"
   }
 }

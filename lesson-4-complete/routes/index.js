@@ -1,9 +1,16 @@
 const routes = require('express').Router();
-const contactsRouter = require('./contacts'); // import the contacts routes
+const temple = require('./temple');
 
-// Mount the contacts routes under the /contacts path
-routes.use('/contacts', contactsRouter);
+routes.use('/', require('./swagger'));
+routes.use('/temples', temple);
+routes.use(
+  '/',
+  (docData = (req, res) => {
+    let docData = {
+      documentationURL: 'https://nathanbirch.github.io/nathan-byui-api-docs',
+    };
+    res.send(docData);
+  })
+);
 
 module.exports = routes;
-
-
