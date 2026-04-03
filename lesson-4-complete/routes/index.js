@@ -1,6 +1,7 @@
 const routes = require('express').Router();
 const contactsRouter = require('./contacts'); // import the contacts routes
 
+router.use('/', require('./swagger'));
 // Mount the contacts routes under the /contacts path
 routes.use('/contacts', contactsRouter);
 
