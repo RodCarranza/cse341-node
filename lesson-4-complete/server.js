@@ -10,7 +10,19 @@ const swaggerDocument = require('./swagger.json');
 // Middleware to parse JSON
 app.use(express.json());
 
-// ADDED BEFORE YOUR ROUTES
+// CORS + headers middleware (ADD HERE)
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept, Z-Key'
+  );
+  res.setHeader('Content-Type', 'application/json');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  next();
+});
+
+// Swagger route
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // MongoDB connection
