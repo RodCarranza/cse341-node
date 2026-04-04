@@ -1,36 +1,41 @@
 const express = require('express');
 const router = express.Router();
-const { getDB } = require('../config/db');
 
-// GET all tasks
-router.get('/', async (req, res) => {
-  try {
-    const db = getDB();
-    const tasks = await db.collection('tasks').find().toArray();
-    res.status(200).json(tasks);
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch tasks' });
-  }
-});
+const {
+  getAllTasks,
+  getTaskById,
+  createTask,
+  updateTask,
+  deleteTask
+} = require('../controllers/tasksController');
 
-// POST new task
-router.post('/', async (req, res) => {
-  try {
-    const db = getDB();
-
-    const task = req.body;
-
-    // Basic validation
-    if (!task.title || !task.status) {
-      return res.status(400).json({ error: 'Title and status are required' });
-    }
-
-    const result = await db.collection('tasks').insertOne(task);
-
-    res.status(201).json(result);
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to create task' });
-  }
-});
+// Routes
+router.get('/', getAllTasks);
+router.get('/:id', getTaskById);
+router.post('/', createTask);
+// #swagger.tags = ['Tasks']
+// #swagger.summary = 'Update a task'
+// #swagger.description = 'Update task fields by ID'
+// #swagger.parameters['id'] = {
+//   in: 'path',
+//   description: 'Task ID',
+//   required: true,
+//   type: 'string'
+// }
+// #swagger.parameters['body'] = {
+//   in: 'body',
+//   description: 'Task data',
+//   required: true,
+//   schema: {
+//     title: "Updated task",
+//     description: "Updated description",
+//     status: "completed",
+//     priority: "high",
+//     dueDate: "2026-04-10",
+//     userId: "123"
+//   }
+// }
+router.put('/:id', updateTask);
+router.delete('/:id', deleteTask);
 
 module.exports = router;

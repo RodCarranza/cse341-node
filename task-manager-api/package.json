@@ -22,7 +22,9 @@
   "dependencies": {
     "dotenv": "^17.4.0",
     "express": "^5.2.1",
-    "mongodb": "^7.1.1"
+    "mongodb": "^7.1.1",
+    "swagger-autogen": "^2.23.7",
+    "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
     "eslint": "^10.2.0",

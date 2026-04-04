@@ -1,0 +1,39 @@
+# GET all
+GET http://localhost:3000/tasks
+###
+
+# GET task by ID
+GET http://localhost:3000/tasks/69d13fa036ff45ae2c300398
+###
+
+# POST task (create new task)
+POST http://localhost:3000/tasks
+Content-Type: application/json
+
+{
+  "title": "Prepare Dinner",
+  "description": "Mom is comming today and I want to have a delicious dinner for her",
+  "status": "pending",
+  "priority": "high",
+  "dueDate": "2026-04-15",
+  "userId": "800"
+}
+###
+
+# PUT (update task)
+PUT http://localhost:3000/tasks/69d141eb6ff1ec6dc96aba43
+Content-Type: application/json
+
+{
+  "title": "Prepare Dinner",
+  "description": "Mom is comming today",
+  "status": "pending",
+  "priority": "high",
+  "dueDate": "2026-04-15",
+  "userId": "811"
+}
+###
+
+# DELETE (delete task by id)
+DELETE http://localhost:3000/tasks/id
+
