@@ -68,7 +68,6 @@ const createTask = async (req, res) => {
       status,
       priority,
       dueDate,
-      userId,
       createdAt: new Date(),
       updatedAt: new Date()
     };

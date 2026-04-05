@@ -94,8 +94,7 @@
                 "description": { "example": "Updated description" },
                 "status": { "example": "completed" },
                 "priority": { "example": "high" },
-                "dueDate": { "example": "2026-04-10" },
-                "userId": { "example": "123" }
+                "dueDate": { "example": "2026-04-10" }
               }
             }
           }
@@ -197,10 +196,7 @@
                 "name": { "example": "Updated Rodrigo Alexis" },
                 "email": { "example": "updated@example.com" },
                 "role": { "example": "student" },
-                "phone": { "example": "503-9999-8888" },
-                "address": { "example": "Santa Tecla, El Salvador" },
-                "department": { "example": "Software Development" },
-                "status": { "example": "inactive" }
+                "createdAt": { "example": "2026-01-01" }
               }
             }
           }
