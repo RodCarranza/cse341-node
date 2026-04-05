@@ -43,8 +43,7 @@
                 "description": { "example": "Complete lesson 5 assignment" },
                 "status": { "example": "in progress" },
                 "priority": { "example": "high" },
-                "dueDate": { "example": "2026-04-10" },
-                "userId": { "example": "123" }
+                "dueDate": { "example": "2026-04-10" }
               }
             }
           }
