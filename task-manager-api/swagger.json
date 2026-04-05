@@ -2,36 +2,37 @@
   "swagger": "2.0",
   "info": {
     "title": "Task Manager API",
-    "description": "API for managing tasks",
+    "description": "API for managing tasks and users",
     "version": "1.0.0"
   },
   "host": "localhost:3000",
-  "basePath": "/tasks",
+  "basePath": "",
   "schemes": ["http"],
   "paths": {
-    "/": {
+    "/tasks": {
       "get": {
-        "description": "",
+        "description": "Get all tasks",
         "responses": {
           "200": { "description": "OK" },
           "500": { "description": "Internal Server Error" }
         }
       },
       "post": {
-        "description": "",
+        "description": "Create a new task",
         "parameters": [
           {
             "name": "body",
             "in": "body",
+            "required": true,
             "schema": {
               "type": "object",
               "properties": {
-                "title": { "example": "any" },
-                "description": { "example": "any" },
-                "status": { "example": "any" },
-                "priority": { "example": "any" },
-                "dueDate": { "example": "any" },
-                "userId": { "example": "any" }
+                "title": { "example": "Finish homework" },
+                "description": { "example": "Complete lesson 5 assignment" },
+                "status": { "example": "in progress" },
+                "priority": { "example": "high" },
+                "dueDate": { "example": "2026-04-10" },
+                "userId": { "example": "123" }
               }
             }
           }
@@ -43,9 +44,9 @@
         }
       }
     },
-    "/{id}": {
+    "/tasks/{id}": {
       "get": {
-        "description": "",
+        "description": "Get task by ID",
         "parameters": [
           {
             "name": "id",
@@ -93,7 +94,7 @@
         }
       },
       "delete": {
-        "description": "",
+        "description": "Delete a task",
         "parameters": [
           {
             "name": "id",
@@ -105,6 +106,42 @@
         "responses": {
           "200": { "description": "OK" },
           "404": { "description": "Not Found" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "description": "Get all users",
+        "responses": {
+          "200": { "description": "OK" },
+          "500": { "description": "Internal Server Error" }
+        }
+      },
+      "post": {
+        "description": "Create a new user",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": { "example": "Rodrigo Alexis" },
+                "email": { "example": "rodrigo@example.com" },
+                "role": { "example": "student" },
+                "phone": { "example": "503-1234-5678" },
+                "address": { "example": "San Salvador, El Salvador" },
+                "department": { "example": "Computer Science" },
+                "status": { "example": "active" }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": { "description": "Created" },
+          "400": { "description": "Bad Request" },
           "500": { "description": "Internal Server Error" }
         }
       }
