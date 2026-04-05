@@ -6,7 +6,7 @@ const doc = {
     description: 'API for managing tasks and users'
   },
   //host: 'localhost:3000',
-  host: 'https://cse341-node-5.onrender.com',
+  host: 'cse341-node-5.onrender.com',
   schemes: ['https'],
   tags: [
     {
