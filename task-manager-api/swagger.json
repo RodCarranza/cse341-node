@@ -145,8 +145,7 @@
               "properties": {
                 "name": { "example": "Michael Jackson" },
                 "email": { "example": "jack_michael@example.com" },
-                "role": { "example": "singer" },
-                "createdAt": { "example": "2026-04-01" }
+                "role": { "example": "singer" }
               }
             }
           }
@@ -195,8 +194,7 @@
               "properties": {
                 "name": { "example": "Updated Rodrigo Alexis" },
                 "email": { "example": "updated@example.com" },
-                "role": { "example": "student" },
-                "createdAt": { "example": "2026-01-01" }
+                "role": { "example": "student" }
               }
             }
           }
