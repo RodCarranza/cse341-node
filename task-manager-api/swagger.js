@@ -7,7 +7,7 @@ const doc = {
   },
   //host: 'localhost:3000',
   host: 'https://cse341-node-5.onrender.com',
-  schemes: ['http'],
+  schemes: ['https'],
   tags: [
     {
       name: 'TASKS',
