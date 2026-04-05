@@ -14,8 +14,12 @@ const PORT = process.env.PORT || 3000;
 
 const taskRoutes = require('./routes/tasks');
 
+const userRoutes = require('./routes/users');
+
 // ROUTES
 app.use('/tasks', taskRoutes);
+app.use('/users', userRoutes);
+
 
 // - swagger
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
