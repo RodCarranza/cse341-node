@@ -1,23 +1,36 @@
-const express = require('express');
 const dotenv = require('dotenv');
-const { connectDB } = require('./config/db');
-
+const express = require('express');
+const session = require('express-session');
 const swaggerUi = require('swagger-ui-express');
+
+const { connectDB } = require('./config/db');
+const passport = require('./config/passport');
+const taskRoutes = require('./routes/tasks');
+const authRoutes = require('./routes/auth');
 const swaggerFile = require('../swagger.json');
 
 dotenv.config();
 
 const app = express();
-app.use(express.json());
-
 const PORT = process.env.PORT || 3000;
 
-const taskRoutes = require('./routes/tasks');
+// Middleware
+app.use(express.json());
 
-// ROUTES
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET || 'secretkey',
+    resave: false,
+    saveUninitialized: false
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Routes
 app.use('/tasks', taskRoutes);
-
-// - swagger
+app.use('/auth', authRoutes);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 connectDB().then(() => {

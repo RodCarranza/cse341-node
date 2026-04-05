@@ -30,8 +30,7 @@
                 "description": { "example": "any" },
                 "status": { "example": "any" },
                 "priority": { "example": "any" },
-                "dueDate": { "example": "any" },
-                "userId": { "example": "any" }
+                "dueDate": { "example": "any" }
               }
             }
           }
@@ -80,8 +79,7 @@
                 "description": { "example": "Updated description" },
                 "status": { "example": "completed" },
                 "priority": { "example": "high" },
-                "dueDate": { "example": "2026-04-10" },
-                "userId": { "example": "123" }
+                "dueDate": { "example": "2026-04-10" }
               }
             }
           }

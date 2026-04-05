@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const authenticateUser = require('../middleware/authenticate');
 
 const {
   getAllTasks,
@@ -10,9 +11,9 @@ const {
 } = require('../controllers/tasksController');
 
 // Routes
-router.get('/', getAllTasks);
-router.get('/:id', getTaskById);
-router.post('/', createTask);
+router.get('/', authenticateUser, getAllTasks);
+router.get('/:id', authenticateUser, getTaskById);
+router.post('/', authenticateUser, createTask);
 // #swagger.tags = ['Tasks']
 // #swagger.summary = 'Update a task'
 // #swagger.description = 'Update task fields by ID'
@@ -31,11 +32,10 @@ router.post('/', createTask);
 //     description: "Updated description",
 //     status: "completed",
 //     priority: "high",
-//     dueDate: "2026-04-10",
-//     userId: "123"
+//     dueDate: "2026-04-10"
 //   }
 // }
-router.put('/:id', updateTask);
-router.delete('/:id', deleteTask);
+router.put('/:id', authenticateUser, updateTask);
+router.delete('/:id', authenticateUser, deleteTask);
 
 module.exports = router;
