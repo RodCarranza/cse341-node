@@ -29,7 +29,7 @@ const getAllTasks = async (req, res) => {
   // }
 };
 
-// GET task by ID
+/*// GET task by ID
 const getTaskById = async (req, res) => {
   // try {
     const db = getDB();
@@ -47,7 +47,7 @@ const getTaskById = async (req, res) => {
   // } catch (error) {
   //   res.status(500).json({ error: 'Invalid ID or server error' });
   // }
-};
+};*/
 
 // POST (CREATE task)
 const createTask = async (req, res) => {
@@ -84,7 +84,7 @@ const createTask = async (req, res) => {
   // }
 };
 
-// PUT (UPDATE task)
+/*// PUT (UPDATE task)
 const updateTask = async (req, res) => {
   // try {
     const db = getDB();
@@ -130,12 +130,12 @@ const deleteTask = async (req, res) => {
   // } catch (error) {
   //   res.status(500).json({ error: 'Failed to delete task' });
   // }
-};
+};*/
 
 module.exports = {
   getAllTasks,
-  getTaskById,
-  createTask,
-  updateTask,
-  deleteTask
+  //getTaskById,
+  createTask
+  //updateTask,
+  //deleteTask
 };

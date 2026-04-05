@@ -3,15 +3,15 @@ const router = express.Router();
 
 const {
   getAllTasks,
-  getTaskById,
-  createTask,
-  updateTask,
-  deleteTask
+  //getTaskById,
+  createTask
+  //updateTask,
+  //deleteTask
 } = require('../controllers/tasksController');
 
 // Routes
 router.get('/', getAllTasks);
-router.get('/:id', getTaskById);
+//router.get('/:id', getTaskById);
 router.post('/', createTask);
 // #swagger.tags = ['Tasks']
 // #swagger.summary = 'Update a task'
@@ -35,7 +35,7 @@ router.post('/', createTask);
 //     userId: "123"
 //   }
 // }
-router.put('/:id', updateTask);
-router.delete('/:id', deleteTask);
+//router.put('/:id', updateTask);
+//router.delete('/:id', deleteTask);
 
 module.exports = router;
