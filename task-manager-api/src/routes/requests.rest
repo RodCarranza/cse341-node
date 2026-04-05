@@ -1,9 +1,13 @@
+
+#------L--O--C--A--L------H--O--S--T-------#
+
+#-------------TASKS-----------------#
 # GET all
 GET http://localhost:3000/tasks
 ###
 
 # GET task by ID
-GET http://localhost:3000/tasks/69d13fa036ff45ae2c300398
+GET http://localhost:3000/tasks/69d149546dde7fb059e06bbc
 ###
 
 # POST task (create new task)
@@ -12,7 +16,7 @@ Content-Type: application/json
 
 {
   "title": "Prepare Dinner",
-  "description": "Mom is comming today and I want to have a delicious dinner for her",
+  "description": "Mom is comming today",
   "status": "pending",
   "priority": "high",
   "dueDate": "2026-04-15",
@@ -21,7 +25,55 @@ Content-Type: application/json
 ###
 
 # PUT (update task)
-PUT http://localhost:3000/tasks/69d141eb6ff1ec6dc96aba43
+PUT http://localhost:3000/tasks/69d1d771f43478fd060ac54f
+Content-Type: application/json
+
+{
+  "title": "Prepare Breakfast",
+  "description": "Mom is comming today",
+  "status": "pending",
+  "priority": "very high",
+  "dueDate": "2026-04-14",
+  "userId": "811"
+}
+###
+
+# DELETE (delete task by id)
+DELETE http://localhost:3000/tasks/69d1d771f43478fd060ac54f
+###
+
+#------------USERS-------------#
+# GET all
+GET http://localhost:3000/users
+###
+
+# POST user (create new user)
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "name": "Alberto Martinez",
+  "email": "albert_m@gmail.com",
+  "role": "student",
+  "phone": "503-1234-5678",
+  "address": "DF, Mexico",
+  "department": "Computer Science",
+  "status": "active"
+}
+
+##### -------------- R--E--N--D--E--R -----------------####
+
+#-------------TASKS-----------------#
+# GET all
+GET http://localhost:3000/tasks
+###
+
+# GET task by ID
+GET http://localhost:3000/tasks/69d149546dde7fb059e06bbc
+###
+
+# POST task (create new task)
+POST http://localhost:3000/tasks
 Content-Type: application/json
 
 {
@@ -30,10 +82,49 @@ Content-Type: application/json
   "status": "pending",
   "priority": "high",
   "dueDate": "2026-04-15",
+  "userId": "800"
+}
+###
+
+# PUT (update task)
+PUT http://localhost:3000/tasks/id
+Content-Type: application/json
+
+{
+  "title": "Prepare Breakfast",
+  "description": "Mom is comming today",
+  "status": "pending",
+  "priority": "very high",
+  "dueDate": "2026-04-14",
   "userId": "811"
 }
 ###
 
 # DELETE (delete task by id)
 DELETE http://localhost:3000/tasks/id
+###
+
+#----------USERS-----------#
+# GET all
+GET http://localhost:3000/users
+###
+
+# POST user (create new user)
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "name": "Roberto Lopez",
+  "email": "robert@example.com",
+  "role": "student",
+  "phone": "503-1234-5678",
+  "address": "San Salvador, El Salvador",
+  "department": "Computer Science",
+  "status": "active"
+}
+
+
+
+
+
 
