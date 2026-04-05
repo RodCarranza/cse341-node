@@ -65,64 +65,57 @@ Content-Type: application/json
 
 #-------------TASKS-----------------#
 # GET all
-GET http://localhost:3000/tasks
+GET https://cse341-node-5.onrender.com/tasks
 ###
 
 # GET task by ID
-GET http://localhost:3000/tasks/69d149546dde7fb059e06bbc
+GET https://cse341-node-5.onrender.com/tasks/69d1fb45eeffd84eddea0af1
 ###
 
 # POST task (create new task)
-POST http://localhost:3000/tasks
+POST https://cse341-node-5.onrender.com/tasks
 Content-Type: application/json
 
 {
-  "title": "Prepare Dinner",
-  "description": "Mom is comming today",
-  "status": "pending",
+  "title": "Finish homework week 5",
+  "description": "Complete lesson 5 assignment",
+  "status": "in progress",
   "priority": "high",
-  "dueDate": "2026-04-15",
-  "userId": "800"
+  "dueDate": "2026-04-11"
 }
 ###
 
 # PUT (update task)
-PUT http://localhost:3000/tasks/id
+PUT https://cse341-node-5.onrender.com/tasks/69d1ffb96519d8ab4331c78c
 Content-Type: application/json
 
 {
-  "title": "Prepare Breakfast",
-  "description": "Mom is comming today",
-  "status": "pending",
-  "priority": "very high",
-  "dueDate": "2026-04-14",
-  "userId": "811"
+  "title": "lesson 5",
+  "description": "Complete lesson 5",
+  "status": "progress",
+  "priority": "high",
+  "dueDate": "2026-04-30"
 }
 ###
 
 # DELETE (delete task by id)
-DELETE http://localhost:3000/tasks/id
+DELETE https://cse341-node-5.onrender.com/tasks/69d1ffb96519d8ab4331c78c
 ###
 
 #----------USERS-----------#
 # GET all
-GET http://localhost:3000/users
+GET https://cse341-node-5.onrender.com/users
 ###
 
 # POST user (create new user)
-POST http://localhost:3000/users
+POST https://cse341-node-5.onrender.com/users
 Content-Type: application/json
 
 {
-  "name": "Roberto Lopez",
-  "email": "robert@example.com",
-  "role": "student",
-  "phone": "503-1234-5678",
-  "address": "San Salvador, El Salvador",
-  "department": "Computer Science",
-  "status": "active"
+  "name": "Mery Jackson",
+  "email": "j_mery@example.com",
+  "role": "artist"
 }
-
 
 
 
