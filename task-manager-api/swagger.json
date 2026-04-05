@@ -145,13 +145,10 @@
             "schema": {
               "type": "object",
               "properties": {
-                "name": { "example": "Rodrigo Alexis" },
-                "email": { "example": "rodrigo@example.com" },
-                "role": { "example": "student" },
-                "phone": { "example": "503-1234-5678" },
-                "address": { "example": "San Salvador, El Salvador" },
-                "department": { "example": "Computer Science" },
-                "status": { "example": "active" }
+                "name": { "example": "Michael Jackson" },
+                "email": { "example": "jack_michael@example.com" },
+                "role": { "example": "singer" },
+                "createdAt": { "example": "2026-04-01" }
               }
             }
           }
