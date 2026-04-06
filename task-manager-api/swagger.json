@@ -5,9 +5,9 @@
     "description": "API for managing tasks and users",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "cse341-node-6.onrender.com",
   "basePath": "",
-  "schemes": ["http"],
+  "schemes": ["https"],
   "tags": [
     {
       "name": "TASKS",

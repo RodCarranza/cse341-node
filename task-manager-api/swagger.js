@@ -5,9 +5,9 @@ const doc = {
     title: 'Task Manager API',
     description: 'API for managing tasks and users'
   },
-  host: 'localhost:3000',
-  //host: 'cse341-node-5.onrender.com',
-  schemes: ['http'],
+  //host: 'localhost:3000',
+  host: 'cse341-node-6.onrender.com',
+  schemes: ['https'],
   tags: [
     {
       name: 'TASKS',
