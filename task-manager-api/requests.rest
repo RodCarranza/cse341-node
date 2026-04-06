@@ -7,7 +7,7 @@ GET http://localhost:3000/tasks
 ###
 
 # GET task by ID
-# GET http://localhost:3000/tasks/69d149546dde7fb059e06bbc
+GET http://localhost:3000/tasks/69d1fb45eeffd84eddea0af1
 ###
 
 # POST task (create new task)
@@ -19,27 +19,25 @@ Content-Type: application/json
   "description": "Mom is comming today",
   "status": "pending",
   "priority": "high",
-  "dueDate": "2026-04-15",
-  "userId": "800"
+  "dueDate": "2026-04-15"
 }
 ###
 
 # PUT (update task)
-# PUT http://localhost:3000/tasks/69d1d771f43478fd060ac54f
+PUT http://localhost:3000/tasks/69d1fb45eeffd84eddea0af1
 Content-Type: application/json
 
 {
   "title": "Prepare Breakfast",
   "description": "Mom is comming today",
   "status": "pending",
-  "priority": "very high",
-  "dueDate": "2026-04-14",
-  "userId": "811"
+  "priority": "low",
+  "dueDate": "2026-04-14"
 }
 ###
 
 # DELETE (delete task by id)
-# DELETE http://localhost:3000/tasks/69d1d771f43478fd060ac54f
+DELETE http://localhost:3000/tasks/69d1fb45eeffd84eddea0af1
 ###
 
 #------------USERS-------------#
@@ -47,75 +45,107 @@ Content-Type: application/json
 GET http://localhost:3000/users
 ###
 
+# GET user by ID
+GET http://localhost:3000/users/69d3263c258b196fdb97d42e
+###
+
 # POST user (create new user)
 POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-  "name": "Alberto Martinez",
-  "email": "albert_m@gmail.com",
-  "role": "student",
-  "phone": "503-1234-5678",
-  "address": "DF, Mexico",
-  "department": "Computer Science",
-  "status": "active"
+  "username": "Alberto25",
+  "password": "A1bert025@"
 }
+###
+
+# UPDATE user
+PUT http://localhost:3000/users/69d3263c258b196fdb97d42e
+Content-Type: application/json
+
+{
+  "username": "Alberto250",
+  "password": "A1bert025@12"
+}
+###
+
+# DELETE user
+DELETE http://localhost:3000/users/69d3263c258b196fdb97d42e
+
 
 ##### -------------- R--E--N--D--E--R -----------------####
 
 #-------------TASKS-----------------#
 # GET all
-GET https://cse341-node-5.onrender.com/tasks
+GET https://cse341-node-6.onrender.com/tasks
 ###
 
 # GET task by ID
-# GET https://cse341-node-5.onrender.com/tasks/69d1fb45eeffd84eddea0af1
+GET https://cse341-node-6.onrender.com/tasks/69d3263c258b196fdb97d42e
 ###
 
 # POST task (create new task)
-POST https://cse341-node-5.onrender.com/tasks
+POST https://cse341-node-6.onrender.com/tasks
 Content-Type: application/json
 
 {
-  "title": "Finish homework week 5",
-  "description": "Complete lesson 5 assignment",
-  "status": "in progress",
+  "title": "Prepare Dinner",
+  "description": "Mom is comming today",
+  "status": "pending",
   "priority": "high",
-  "dueDate": "2026-04-11"
+  "dueDate": "2026-04-15"
 }
 ###
 
 # PUT (update task)
-# PUT https://cse341-node-5.onrender.com/tasks/69d1ffb96519d8ab4331c78c
+PUT https://cse341-node-6.onrender.com/tasks/69d3263c258b196fdb97d42e
 Content-Type: application/json
 
 {
-  "title": "lesson 5",
-  "description": "Complete lesson 5",
-  "status": "progress",
-  "priority": "high",
-  "dueDate": "2026-04-30"
+  "title": "Prepare Breakfast",
+  "description": "Mom is comming today",
+  "status": "pending",
+  "priority": "low",
+  "dueDate": "2026-04-14"
 }
 ###
 
 # DELETE (delete task by id)
-#DELETE https://cse341-node-5.onrender.com/tasks/69d1ffb96519d8ab4331c78c
+DELETE https://cse341-node-6.onrender.com/tasks/69d3263c258b196fdb97d42e
 ###
 
-#----------USERS-----------#
+#------------USERS-------------#
 # GET all
-GET https://cse341-node-5.onrender.com/users
+GET https://cse341-node-6.onrender.com/users
+###
+
+# GET user by ID
+GET https://cse341-node-6.onrender.com/users/69d3263c258b196fdb97d42e
 ###
 
 # POST user (create new user)
-POST https://cse341-node-5.onrender.com/users
+POST https://cse341-node-6.onrender.com/users
 Content-Type: application/json
 
 {
-  "name": "Mery Jackson",
-  "email": "j_mery@example.com",
-  "role": "artist"
+  "username": "Alberto5",
+  "password": "A1bert025@"
 }
+###
+
+# UPDATE user
+PUT https://cse341-node-6.onrender.com/users/69d3263c258b196fdb97d42e
+Content-Type: application/json
+
+{
+  "username": "Alberto2500",
+  "password": "A1bert025@12"
+}
+###
+
+# DELETE user
+DELETE https://cse341-node-6.onrender.com/users/69d3263c258b196fdb97d42e
+
 
 
 
