@@ -104,7 +104,7 @@ const updateTask = async (req, res) => {
       return res.status(404).json({ error: 'Task not found' });
     }
 
-    res.status(200).json({ message: 'Task updated successfully' });
+    res.status(204).json({ message: 'Task updated successfully' });
   } catch (error) {
     res.status(500).json({ error: 'Failed to update task' });
   }
