@@ -5,9 +5,9 @@
     "description": "API for managing tasks and users",
     "version": "1.0.0"
   },
-  "host": "cse341-node-5.onrender.com",
+  "host": "localhost:3000",
   "basePath": "",
-  "schemes": ["https"],
+  "schemes": ["http"],
   "tags": [
     {
       "name": "TASKS",
@@ -143,9 +143,8 @@
             "schema": {
               "type": "object",
               "properties": {
-                "name": { "example": "Michael Jackson" },
-                "email": { "example": "jack_michael@example.com" },
-                "role": { "example": "singer" }
+                "username": { "example": "Michael22" },
+                "password": { "example": "M1ch@el" }
               }
             }
           }
@@ -192,9 +191,8 @@
             "schema": {
               "type": "object",
               "properties": {
-                "name": { "example": "Updated Rodrigo Alexis" },
-                "email": { "example": "updated@example.com" },
-                "role": { "example": "student" }
+                "username": { "example": "Pablo_41" },
+                "password": { "example": "pAbl0user$" }
               }
             }
           }
