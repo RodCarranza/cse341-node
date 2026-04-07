@@ -8,7 +8,7 @@ const taskSchema = Joi.object({
   dueDate: Joi.date().iso().required().messages({
     'date.format': '"dueDate" must follow YYYY-MM-DD format'
   }),
-  //userId: Joi.string().length(24).hex().required()
+
 });
 
 module.exports = {
