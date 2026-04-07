@@ -1,0 +1,57 @@
+const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const { ObjectId } = require('mongodb');
+const { getDB } = require('./db');
+
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      callbackURL: '/auth/google/callback'
+    },
+    async (accessToken, refreshToken, profile, done) => {
+      try {
+        const db = getDB();
+
+        let user = await db.collection('users').findOne({
+          googleId: profile.id
+        });
+
+        if (!user) {
+          const newUser = {
+            googleId: profile.id,
+            name: profile.displayName,
+            email: profile.emails?.[0]?.value || '',
+            createdAt: new Date()
+          };
+
+          const result = await db.collection('users').insertOne(newUser);
+          user = await db.collection('users').findOne({ _id: result.insertedId });
+        }
+
+        return done(null, user);
+      } catch (error) {
+        return done(error, null);
+      }
+    }
+  )
+);
+
+passport.serializeUser((user, done) => {
+  done(null, user._id.toString());
+});
+
+passport.deserializeUser(async (id, done) => {
+  try {
+    const db = getDB();
+    const user = await db.collection('users').findOne({
+      _id: new ObjectId(id)
+    });
+    done(null, user);
+  } catch (error) {
+    done(error, null);
+  }
+});
+
+module.exports = passport;
