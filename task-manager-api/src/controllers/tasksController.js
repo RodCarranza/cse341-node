@@ -1,48 +1,45 @@
 const { getDB } = require('../config/db');
 const { ObjectId } = require('mongodb');
 
-// Date formatter
 const formatDate = (date) => {
   if (!date) return null;
   const d = new Date(date);
   return d.toISOString().replace('T', ' ').substring(0, 16);
 };
 
-// Task formatter
 const formatTask = (task) => ({
   ...task,
   createdAt: formatDate(task.createdAt),
   updatedAt: formatDate(task.updatedAt)
 });
 
-// GET all tasks
 const getAllTasks = async (req, res) => {
   try {
     const db = getDB();
-    const tasks = await db.collection('tasks').find().toArray();
+    const tasks = await db
+      .collection('tasks')
+      .find({ userId: req.user._id.toString() })
+      .toArray();
 
-    const formattedTasks = tasks.map(formatTask);
-
-    res.status(200).json(formattedTasks);
+    res.status(200).json(tasks.map(formatTask));
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch tasks' });
   }
 };
 
-// GET task by ID
 const getTaskById = async (req, res) => {
   try {
     const db = getDB();
     const id = req.params.id;
 
-    // Validate ObjectId format
     if (!ObjectId.isValid(id)) {
       return res.status(400).json({ error: 'Invalid ID format' });
     }
 
-    const task = await db
-      .collection('tasks')
-      .findOne({ _id: new ObjectId(id) });
+    const task = await db.collection('tasks').findOne({
+      _id: new ObjectId(id),
+      userId: req.user._id.toString()
+    });
 
     if (!task) {
       return res.status(404).json({ error: 'Task not found' });
@@ -54,15 +51,13 @@ const getTaskById = async (req, res) => {
   }
 };
 
-// POST (CREATE task)
 const createTask = async (req, res) => {
   try {
     const db = getDB();
 
-    // Joi already validated req.body
     const task = {
       ...req.body,
-      //userId: new ObjectId(req.body.userId), // convert here
+      userId: req.user._id.toString(),
       createdAt: new Date(),
       updatedAt: new Date()
     };
@@ -78,25 +73,28 @@ const createTask = async (req, res) => {
   }
 };
 
-// PUT (UPDATE task)
 const updateTask = async (req, res) => {
   try {
     const db = getDB();
     const id = req.params.id;
 
-    // Validate ObjectId format
     if (!ObjectId.isValid(id)) {
       return res.status(400).json({ error: 'Invalid ID format' });
     }
 
     const updatedTask = {
       ...req.body,
-      //userId: new ObjectId(req.body.userId), // convert here
       updatedAt: new Date()
     };
 
+    delete updatedTask.userId;
+    delete updatedTask.createdAt;
+
     const result = await db.collection('tasks').updateOne(
-      { _id: new ObjectId(id) },
+      {
+        _id: new ObjectId(id),
+        userId: req.user._id.toString()
+      },
       { $set: updatedTask }
     );
 
@@ -104,25 +102,24 @@ const updateTask = async (req, res) => {
       return res.status(404).json({ error: 'Task not found' });
     }
 
-    res.status(204).json({ message: 'Task updated successfully' });
+    res.status(204).send();
   } catch (error) {
     res.status(500).json({ error: 'Failed to update task' });
   }
 };
 
-// DELETE task
 const deleteTask = async (req, res) => {
   try {
     const db = getDB();
     const id = req.params.id;
 
-    // Validate ObjectId format
     if (!ObjectId.isValid(id)) {
       return res.status(400).json({ error: 'Invalid ID format' });
     }
 
     const result = await db.collection('tasks').deleteOne({
-      _id: new ObjectId(id)
+      _id: new ObjectId(id),
+      userId: req.user._id.toString()
     });
 
     if (result.deletedCount === 0) {
