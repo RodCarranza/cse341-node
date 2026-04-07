@@ -1,18 +1,12 @@
 const express = require('express');
 const router = express.Router();
+const { getAllUsers, getCurrentUser } = require('../controllers/usersController');
+const authenticateUser = require('../middleware/authenticate');
 
-const {
-  getAllUsers,
-  getUserById,
-  createUser,
-  updateUser,
-  deleteUser
-} = require('../controllers/usersController');
+// #swagger.tags = ['USERS']
+router.get('/', authenticateUser, getAllUsers);
 
-router.get('/', getAllUsers);
-router.get('/:id', getUserById);
-router.post('/', createUser);
-router.put('/:id', updateUser);
-router.delete('/:id', deleteUser);
+// #swagger.tags = ['USERS']
+router.get('/me', authenticateUser, getCurrentUser);
 
 module.exports = router;
