@@ -5,8 +5,9 @@ const doc = {
     title: 'Task Manager API',
     description: 'API for managing tasks and users with Google OAuth'
   },
-  host: 'localhost:3000',
-  schemes: ['http'],
+  host: 'cse341-node-8.onrender.com',
+  //host: 'localhost:3000',
+  schemes: ['https'],
   tags: [
     { name: 'TASKS', description: 'Operations for managing tasks' },
     { name: 'USERS', description: 'Operations for managing users' },

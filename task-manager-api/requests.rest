@@ -1,13 +1,13 @@
 
 #------L--O--C--A--L------H--O--S--T-------#
 
-#-------------TASKS-----------------#
+#-------------TASKS-----------------# cse341-node-8.onrender.com
 # GET all
 GET http://localhost:3000/tasks
 ###
 
 # GET task by ID
-GET http://localhost:3000/tasks/69d1fb45eeffd84eddea0af1
+GET http://localhost:3000/tasks/69d5a271c673eb25330c571d
 ###
 
 # POST task (create new task)
@@ -24,7 +24,7 @@ Content-Type: application/json
 ###
 
 # PUT (update task)
-PUT http://localhost:3000/tasks/69d1fb45eeffd84eddea0af1
+PUT http://localhost:3000/tasks/69d5a271c673eb25330c571d
 Content-Type: application/json
 
 {
@@ -37,41 +37,14 @@ Content-Type: application/json
 ###
 
 # DELETE (delete task by id)
-DELETE http://localhost:3000/tasks/69d1fb45eeffd84eddea0af1
+DELETE http://localhost:3000/tasks/69d5a271c673eb25330c571d
 ###
 
 #------------USERS-------------#
-# GET all
-GET http://localhost:3000/users
-###
 
-# GET user by ID
+# GET check
 GET http://localhost:3000/users/69d3263c258b196fdb97d42e
 ###
-
-# POST user (create new user)
-POST http://localhost:3000/users
-Content-Type: application/json
-
-{
-  "username": "Alberto25",
-  "password": "A1bert025@"
-}
-###
-
-# UPDATE user
-PUT http://localhost:3000/users/69d3263c258b196fdb97d42e
-Content-Type: application/json
-
-{
-  "username": "Alberto250",
-  "password": "A1bert025@12"
-}
-###
-
-# DELETE user
-DELETE http://localhost:3000/users/69d3263c258b196fdb97d42e
-
 
 ##### -------------- R--E--N--D--E--R -----------------####
 
