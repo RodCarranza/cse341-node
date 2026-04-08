@@ -183,19 +183,6 @@
         }
       }
     },
-    "/users": {
-      "get": {
-        "tags": ["USERS"],
-        "summary": "Get all users",
-        "description": "Get all users from the users collection",
-        "produces": ["application/json"],
-        "responses": {
-          "200": { "description": "OK" },
-          "401": { "description": "Unauthorized" },
-          "500": { "description": "Internal Server Error" }
-        }
-      }
-    },
     "/users/me": {
       "get": {
         "tags": ["USERS"],
@@ -209,38 +196,7 @@
         }
       }
     },
-    "/auth/google": {
-      "get": {
-        "tags": ["AUTH"],
-        "summary": "Login with Google OAuth",
-        "description": "Redirects user to Google for authentication",
-        "responses": {
-          "302": { "description": "Redirect to Google" }
-        }
-      }
-    },
-    "/auth/google/callback": {
-      "get": {
-        "tags": ["AUTH"],
-        "summary": "Google OAuth callback",
-        "description": "Handles Google response and logs the user in",
-        "responses": {
-          "200": { "description": "Login successful" }
-        }
-      }
-    },
-    "/auth/me": {
-      "get": {
-        "tags": ["AUTH"],
-        "summary": "Get current logged-in user",
-        "description": "Returns the authenticated user based on session",
-        "produces": ["application/json"],
-        "responses": {
-          "200": { "description": "OK" },
-          "401": { "description": "Not logged in" }
-        }
-      }
-    },
+
     "/auth/logout": {
       "get": {
         "tags": ["AUTH"],

@@ -1,20 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('../config/passport');
-
-// #swagger.path = '/auth/google'
-// #swagger.tags = ['AUTH']
-// #swagger.summary = 'Login with Google OAuth'
-// #swagger.description = 'Redirects user to Google for authentication'
 router.get(
   '/google',
   passport.authenticate('google', { scope: ['profile', 'email'] })
 );
 
-// #swagger.path = '/auth/google/callback'
-// #swagger.tags = ['AUTH']
-// #swagger.summary = 'Google OAuth callback'
-// #swagger.description = 'Handles Google response and logs the user in'
 router.get(
   '/google/callback',
   passport.authenticate('google', {
