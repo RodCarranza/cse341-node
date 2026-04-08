@@ -2,15 +2,19 @@ const express = require('express');
 const router = express.Router();
 const passport = require('../config/passport');
 
+// #swagger.path = '/auth/google'
 // #swagger.tags = ['AUTH']
 // #swagger.summary = 'Login with Google OAuth'
+// #swagger.description = 'Redirects user to Google for authentication'
 router.get(
   '/google',
   passport.authenticate('google', { scope: ['profile', 'email'] })
 );
 
+// #swagger.path = '/auth/google/callback'
 // #swagger.tags = ['AUTH']
 // #swagger.summary = 'Google OAuth callback'
+// #swagger.description = 'Handles Google response and logs the user in'
 router.get(
   '/google/callback',
   passport.authenticate('google', {
@@ -21,8 +25,16 @@ router.get(
   }
 );
 
+// #swagger.path = '/auth/me'
 // #swagger.tags = ['AUTH']
 // #swagger.summary = 'Get current logged-in user'
+// #swagger.description = 'Returns the authenticated user based on session'
+// #swagger.responses[200] = {
+// #   description: 'OK'
+// # }
+// #swagger.responses[401] = {
+// #   description: 'Not logged in'
+// # }
 router.get('/me', (req, res) => {
   if (!req.user) {
     return res.status(401).json({ error: 'Not logged in' });
@@ -31,8 +43,10 @@ router.get('/me', (req, res) => {
   res.status(200).json(req.user);
 });
 
+// #swagger.path = '/auth/logout'
 // #swagger.tags = ['AUTH']
 // #swagger.summary = 'Logout current user'
+// #swagger.description = 'Logs out the current user and destroys session'
 router.get('/logout', (req, res, next) => {
   req.logout(function (err) {
     if (err) {

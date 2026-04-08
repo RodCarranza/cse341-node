@@ -5,8 +5,9 @@
     "description": "API for managing tasks and users with Google OAuth",
     "version": "1.0.0"
   },
-  "host": "cse341-node-6.onrender.com",
+  "host": "localhost:3000",
   "basePath": "",
+  "schemes": ["http"],
   "tags": [
     {
       "name": "TASKS",
@@ -21,172 +22,232 @@
       "description": "Authentication with Google OAuth"
     }
   ],
-  "schemes": [
-    "https"
-  ],
   "paths": {
-    "/": {
+    "/tasks": {
       "get": {
-        "description": "",
+        "tags": ["TASKS"],
+        "summary": "Get all tasks",
+        "description": "Get all tasks for the logged-in user",
+        "produces": ["application/json"],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
+          "200": { "description": "OK" },
+          "401": { "description": "Unauthorized" },
+          "500": { "description": "Internal Server Error" }
         }
       },
       "post": {
-        "description": "",
-        "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Internal Server Error"
+        "tags": ["TASKS"],
+        "summary": "Create a new task",
+        "description": "Create a task for the logged-in user",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Task data",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "example": "OAuth test"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Created after login"
+                },
+                "status": {
+                  "type": "string",
+                  "example": "pending"
+                },
+                "priority": {
+                  "type": "string",
+                  "example": "high"
+                },
+                "dueDate": {
+                  "type": "string",
+                  "example": "2026-04-10"
+                }
+              },
+              "required": ["title", "status", "priority", "dueDate"]
+            }
           }
+        ],
+        "responses": {
+          "201": { "description": "Created" },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" },
+          "500": { "description": "Internal Server Error" }
         }
       }
     },
-    "/{id}": {
+    "/tasks/{id}": {
       "get": {
-        "description": "",
+        "tags": ["TASKS"],
+        "summary": "Get task by ID",
+        "description": "Get one task by its ID for the logged-in user",
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Task ID",
             "required": true,
             "type": "string"
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" },
+          "404": { "description": "Not Found" },
+          "500": { "description": "Internal Server Error" }
         }
       },
       "put": {
-        "description": "",
+        "tags": ["TASKS"],
+        "summary": "Update a task",
+        "description": "Update task fields by ID for the logged-in user",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Task ID",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Updated task data",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "example": "Updated task"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Updated description"
+                },
+                "status": {
+                  "type": "string",
+                  "example": "completed"
+                },
+                "priority": {
+                  "type": "string",
+                  "example": "high"
+                },
+                "dueDate": {
+                  "type": "string",
+                  "example": "2026-04-10"
+                }
+              }
+            }
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
+          "204": { "description": "No Content" },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" },
+          "404": { "description": "Not Found" },
+          "500": { "description": "Internal Server Error" }
         }
       },
       "delete": {
-        "description": "",
+        "tags": ["TASKS"],
+        "summary": "Delete a task",
+        "description": "Delete a task by ID for the logged-in user",
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Task ID",
             "required": true,
             "type": "string"
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" },
+          "404": { "description": "Not Found" },
+          "500": { "description": "Internal Server Error" }
         }
       }
     },
-    "/me": {
+    "/users": {
       "get": {
-        "description": "",
+        "tags": ["USERS"],
+        "summary": "Get all users",
+        "description": "Get all users from the users collection",
+        "produces": ["application/json"],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
+          "200": { "description": "OK" },
+          "401": { "description": "Unauthorized" },
+          "500": { "description": "Internal Server Error" }
         }
       }
     },
-    "/google": {
+    "/users/me": {
       "get": {
-        "description": "",
+        "tags": ["USERS"],
+        "summary": "Get current logged-in user",
+        "description": "Get the currently authenticated user",
+        "produces": ["application/json"],
         "responses": {
-          "default": {
-            "description": ""
-          }
+          "200": { "description": "OK" },
+          "401": { "description": "Unauthorized" },
+          "500": { "description": "Internal Server Error" }
         }
       }
     },
-    "/google/callback": {
+    "/auth/google": {
       "get": {
-        "description": "",
+        "tags": ["AUTH"],
+        "summary": "Login with Google OAuth",
+        "description": "Redirects user to Google for authentication",
         "responses": {
-          "200": {
-            "description": "OK"
-          }
+          "302": { "description": "Redirect to Google" }
         }
       }
     },
-    "/logout": {
+    "/auth/google/callback": {
       "get": {
-        "description": "",
+        "tags": ["AUTH"],
+        "summary": "Google OAuth callback",
+        "description": "Handles Google response and logs the user in",
         "responses": {
-          "200": {
-            "description": "OK"
-          }
+          "200": { "description": "Login successful" }
+        }
+      }
+    },
+    "/auth/me": {
+      "get": {
+        "tags": ["AUTH"],
+        "summary": "Get current logged-in user",
+        "description": "Returns the authenticated user based on session",
+        "produces": ["application/json"],
+        "responses": {
+          "200": { "description": "OK" },
+          "401": { "description": "Not logged in" }
+        }
+      }
+    },
+    "/auth/logout": {
+      "get": {
+        "tags": ["AUTH"],
+        "summary": "Logout current user",
+        "description": "Logs out the current user and destroys session",
+        "responses": {
+          "200": { "description": "Logged out" }
         }
       }
     }
