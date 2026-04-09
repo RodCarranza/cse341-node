@@ -1,13 +1,16 @@
 
 #------L--O--C--A--L------H--O--S--T-------#
 
-#-------------TASKS-----------------# cse341-node-8.onrender.com
+# Login first
+http://localhost:3000/auth/me
+
+#-------------TASKS-----------------#
 # GET all
 GET http://localhost:3000/tasks
 ###
 
 # GET task by ID
-GET http://localhost:3000/tasks/69d5a271c673eb25330c571d
+GET http://localhost:3000/tasks/69d6f812760bfb88c95aa413
 ###
 
 # POST task (create new task)
@@ -24,7 +27,7 @@ Content-Type: application/json
 ###
 
 # PUT (update task)
-PUT http://localhost:3000/tasks/69d5a271c673eb25330c571d
+PUT http://localhost:3000/tasks/69d6f8f3760bfb88c95aa414
 Content-Type: application/json
 
 {
@@ -37,28 +40,26 @@ Content-Type: application/json
 ###
 
 # DELETE (delete task by id)
-DELETE http://localhost:3000/tasks/69d5a271c673eb25330c571d
-###
+DELETE http://localhost:3000/tasks/69d6f8f3760bfb88c95aa414
 
-#------------USERS-------------#
-
-# GET check
-GET http://localhost:3000/users/69d3263c258b196fdb97d42e
-###
 
 ##### -------------- R--E--N--D--E--R -----------------####
 
+#------LOGIN FIRST VIA BROWSER----------#
+https://cse341-node-8.onrender.com/auth/google
+###
+
 #-------------TASKS-----------------#
 # GET all
-GET https://cse341-node-6.onrender.com/tasks
+GET https://cse341-node-8.onrender.com/tasks
 ###
 
 # GET task by ID
-GET https://cse341-node-6.onrender.com/tasks/69d3263c258b196fdb97d42e
+GET https://cse341-node-8.onrender.com/tasks/69d6f812760bfb88c95aa413
 ###
 
 # POST task (create new task)
-POST https://cse341-node-6.onrender.com/tasks
+POST https://cse341-node-8.onrender.com/tasks
 Content-Type: application/json
 
 {
@@ -71,7 +72,7 @@ Content-Type: application/json
 ###
 
 # PUT (update task)
-PUT https://cse341-node-6.onrender.com/tasks/69d3263c258b196fdb97d42e
+PUT https://cse341-node-8.onrender.com/tasks/69d3263c258b196fdb97d42e
 Content-Type: application/json
 
 {
@@ -84,40 +85,9 @@ Content-Type: application/json
 ###
 
 # DELETE (delete task by id)
-DELETE https://cse341-node-6.onrender.com/tasks/69d3263c258b196fdb97d42e
+DELETE https://cse341-node-8.onrender.com/tasks/69d3263c258b196fdb97d42e
 ###
 
-#------------USERS-------------#
-# GET all
-GET https://cse341-node-6.onrender.com/users
-###
-
-# GET user by ID
-GET https://cse341-node-6.onrender.com/users/69d3263c258b196fdb97d42e
-###
-
-# POST user (create new user)
-POST https://cse341-node-6.onrender.com/users
-Content-Type: application/json
-
-{
-  "username": "Alberto5",
-  "password": "A1bert025@"
-}
-###
-
-# UPDATE user
-PUT https://cse341-node-6.onrender.com/users/69d3263c258b196fdb97d42e
-Content-Type: application/json
-
-{
-  "username": "Alberto2500",
-  "password": "A1bert025@12"
-}
-###
-
-# DELETE user
-DELETE https://cse341-node-6.onrender.com/users/69d3263c258b196fdb97d42e
 
 
 
