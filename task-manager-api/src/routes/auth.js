@@ -1,9 +1,17 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('../config/passport');
+
+// #swagger.path = '/auth/google'
+// #swagger.tags = ['AUTH']
+// #swagger.summary = 'Login with Google OAuth'
+// #swagger.description = 'Redirects user to Google for authentication'
 router.get(
   '/google',
-  passport.authenticate('google', { scope: ['profile', 'email'] })
+  passport.authenticate('google', {
+    scope: ['profile', 'email'],
+    prompt: 'select_account'
+  })
 );
 
 router.get(
@@ -43,7 +51,15 @@ router.get('/logout', (req, res, next) => {
     if (err) {
       return next(err);
     }
-    res.send('Logged out');
+
+    req.session.destroy((sessionErr) => {
+      if (sessionErr) {
+        return next(sessionErr);
+      }
+
+      res.clearCookie('connect.sid');
+      res.send('Logged out successfully');
+    });
   });
 });
 
