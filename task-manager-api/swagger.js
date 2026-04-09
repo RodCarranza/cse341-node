@@ -10,8 +10,7 @@ const doc = {
   schemes: ['https'],
   tags: [
     { name: 'TASKS', description: 'Operations for managing tasks' },
-    { name: 'USERS', description: 'Operations for managing users' },
-    { name: 'AUTH', description: 'Authentication with Google OAuth' }
+    { name: 'USERS', description: 'Operations for managing users' }
   ],
   basePath: ''
 };
