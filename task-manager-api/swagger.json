@@ -181,13 +181,12 @@
       }
     },
     "/users/me": {
-      "get": {
+      "delete": {
         "tags": ["USERS"],
-        "summary": "Get current logged-in user",
-        "description": "Get the currently authenticated user",
-        "produces": ["application/json"],
+        "summary": "Delete current logged-in user",
+        "description": "Deletes the authenticated user and all their tasks",
         "responses": {
-          "200": { "description": "OK" },
+          "200": { "description": "User deleted successfully" },
           "401": { "description": "Unauthorized" },
           "500": { "description": "Internal Server Error" }
         }

@@ -1,16 +1,16 @@
 const express = require('express');
 const router = express.Router();
 const {
-  getCurrentUser
+  deleteCurrentUser
 } = require('../controllers/usersController');
 const authenticateUser = require('../middleware/authenticate');
 
 // #swagger.path = '/users/me'
 // #swagger.tags = ['USERS']
-// #swagger.summary = 'Get current logged-in user'
-// #swagger.description = 'Get the currently authenticated user'
+// #swagger.summary = 'Delete current logged-in user'
+// #swagger.description = 'Deletes the authenticated user and all their tasks'
 // #swagger.responses[200] = {
-// #   description: 'OK'
+// #   description: 'User deleted successfully'
 // # }
 // #swagger.responses[401] = {
 // #   description: 'Unauthorized'
@@ -18,6 +18,6 @@ const authenticateUser = require('../middleware/authenticate');
 // #swagger.responses[500] = {
 // #   description: 'Internal Server Error'
 // # }
-router.get('/me', authenticateUser, getCurrentUser);
+router.delete('/me', authenticateUser, deleteCurrentUser);
 
 module.exports = router;
