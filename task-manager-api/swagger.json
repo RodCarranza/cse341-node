@@ -195,17 +195,7 @@
           "500": { "description": "Internal Server Error" }
         }
       }
-    },
-
-    "/auth/logout": {
-      "get": {
-        "tags": ["AUTH"],
-        "summary": "Logout current user",
-        "description": "Logs out the current user and destroys session",
-        "responses": {
-          "200": { "description": "Logged out" }
-        }
-      }
     }
   }
 }
+
